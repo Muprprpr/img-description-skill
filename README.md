@@ -25,11 +25,13 @@ img-description-skill/
 ├── LICENSE                 # MIT许可证
 ├── .gitignore             # Git忽略配置
 ├── README.md              # 项目说明（本文件）
-├── .claude/               # Claude Code Plugin配置
+├── .claude/               # Claude Code设置
+│   └── settings.local.json
+├── .claude-plugin/        # Claude Code Plugin配置
 │   └── marketplace.json   # Marketplace插件配置
 └── skills/                # Skills内容目录
     └── img-hamming-skill/
-        ├── skill.json         # Skill元数据
+        ├── skill.md           # Skill说明（Markdown格式）
         ├── main.py            # Python入口脚本
         ├── requirements.txt   # Python依赖
         ├── bin/               # 可执行文件
