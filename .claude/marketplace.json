@@ -16,7 +16,7 @@
   "skills": [
     {
       "name": "img-hamming-skill",
-      "path": ".claude/skills/img-hamming-skill",
+      "path": "skills/img-hamming-skill",
       "description": "图片聚类与描述中间组件 - 基于dHash进行图片分级聚类，生成拼图并提供AI描述"
     }
   ],
