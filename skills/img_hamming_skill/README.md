@@ -65,6 +65,29 @@ pip install -r requirements.txt
 export ANTHROPIC_API_KEY=your_api_key_here
 ```
 
+### 4. Claude Code Plugin 安装
+
+在 Claude Code 中使用 `/plugin` 命令安装此技能：
+
+```bash
+# 方式1：直接使用GitHub仓库
+/plugin install https://github.com/Muprprpr/img-description-skill
+
+# 方式2：本地安装
+/plugin install /path/to/img-description-skill
+
+# 方式3：克隆后安装
+git clone https://github.com/Muprprpr/img-description-skill.git
+cd img-description-skill
+/plugin install .
+```
+
+安装后，即可在 Claude Code 中直接调用此技能：
+
+```
+请使用 img_hamming_skill 处理 /path/to/images 目录下的图片
+```
+
 ## 使用方式
 
 ### 命令行调用
@@ -269,4 +292,4 @@ pydantic>=2.0.0
 
 ---
 
-**作者**: ASUS | **版本**: 1.0.0
+**作者**: Muprprpr | **版本**: 1.0.0 | **仓库**: [GitHub](https://github.com/Muprprpr/img-description-skill)

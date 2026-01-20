@@ -3,15 +3,15 @@
   "displayName": "图片聚类与描述中间组件",
   "version": "1.0.0",
   "description": "基于dHash算法的大规模图片聚类分级与AI多模态描述组件。支持三层聚类结构，自动生成拼图并使用Claude进行智能描述。适合作为大型skills中的中间处理组件。",
-  "author": "ASUS",
+  "author": "Muprprpr",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/img_description_skill.git"
+    "url": "https://github.com/Muprprpr/img-description-skill.git"
   },
-  "homepage": "https://github.com/your-username/img_description_skill#readme",
+  "homepage": "https://github.com/Muprprpr/img-description-skill#readme",
   "bugs": {
-    "url": "https://github.com/your-username/img_description_skill/issues"
+    "url": "https://github.com/Muprprpr/img-description-skill/issues"
   },
   "category": "image-processing",
   "tags": [

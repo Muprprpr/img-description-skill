@@ -2,7 +2,7 @@
 
 > 基于dHash聚类与Claude多模态AI的图片处理中间组件
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Go](https://img.shields.io/badge/go-1.24+-00ADD8?logo=go)](https://golang.org/)
 
@@ -21,7 +21,7 @@
 ## 项目结构
 
 ```
-img_description_skill/
+img-description-skill/
 ├── LICENSE                 # MIT许可证
 ├── .gitignore             # Git忽略配置
 ├── README.md              # 项目说明（本文件）
@@ -51,14 +51,37 @@ img_description_skill/
 
 ```bash
 # 克隆仓库
-git clone https://github.com/your-username/img_description_skill.git
-cd img_description_skill
+git clone https://github.com/Muprprpr/img-description-skill.git
+cd img-description-skill
 
 # 安装Python依赖
 pip install -r skills/img_hamming_skill/requirements.txt
 
 # 设置API密钥
 export ANTHROPIC_API_KEY=your_api_key_here
+```
+
+### Claude Code Plugin 安装
+
+在 Claude Code 中使用 `/plugin` 命令安装此技能：
+
+```bash
+# 方式1：直接使用GitHub仓库
+/plugin install https://github.com/Muprprpr/img-description-skill
+
+# 方式2：本地安装
+/plugin install /path/to/img-description-skill
+
+# 方式3：克隆后安装
+git clone https://github.com/Muprprpr/img-description-skill.git
+cd img-description-skill
+/plugin install .
+```
+
+安装后，即可在 Claude Code 中直接调用此技能：
+
+```
+请使用 img_hamming_skill 处理 /path/to/images 目录下的图片
 ```
 
 ### 使用
