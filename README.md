@@ -25,18 +25,22 @@ img-description-skill/
 ├── LICENSE                 # MIT许可证
 ├── .gitignore             # Git忽略配置
 ├── README.md              # 项目说明（本文件）
-└── skills/
+├── .github/               # GitHub配置
+│   └── marketplace.json   # Marketplace插件配置
+├── .claude/               # Claude Code技能目录
+│   └── skills/
+│       └── img-hamming-skill/
+│           ├── skill.json         # Skill元数据
+│           ├── main.py            # Python入口脚本
+│           ├── requirements.txt   # Python依赖
+│           ├── bin/               # 可执行文件
+│           │   └── hamming.exe    # 编译后的Go程序
+│           └── src/               # Go源代码
+│               ├── main.go        # Go源码
+│               └── go.mod         # Go模块配置
+└── skills/                # 旧版目录（保留用于直接Python调用）
     └── img_hamming_skill/
-        ├── README.md          # Skill详细说明
-        ├── marketplace.json   # Marketplace配置
-        ├── skill.json         # Skill元数据
-        ├── requirements.txt   # Python依赖
-        ├── main.py            # Python入口脚本
-        ├── bin/               # 可执行文件
-        │   └── hamming.exe    # 编译后的Go程序
-        └── src/               # 源代码
-            ├── main.go        # Go源码
-            └── go.mod         # Go模块配置
+        └── README.md          # Skill详细说明
 ```
 
 ## 快速开始
@@ -55,7 +59,7 @@ git clone https://github.com/Muprprpr/img-description-skill.git
 cd img-description-skill
 
 # 安装Python依赖
-pip install -r skills/img_hamming_skill/requirements.txt
+pip install -r .claude/skills/img-hamming-skill/requirements.txt
 
 # 设置API密钥
 export ANTHROPIC_API_KEY=your_api_key_here
@@ -66,41 +70,48 @@ export ANTHROPIC_API_KEY=your_api_key_here
 在 Claude Code 中使用 `/plugin` 命令安装此技能：
 
 ```bash
-# 方式1：直接使用GitHub仓库
-/plugin install https://github.com/Muprprpr/img-description-skill
+# 步骤1：添加到 Marketplace
+/plugin marketplace add Muprprpr/img-description-skill
 
-# 方式2：本地安装
-/plugin install /path/to/img-description-skill
-
-# 方式3：克隆后安装
-git clone https://github.com/Muprprpr/img-description-skill.git
-cd img-description-skill
-/plugin install .
+# 步骤2：安装技能
+/plugin install img-hamming-skill@img-description-skill
 ```
 
 安装后，即可在 Claude Code 中直接调用此技能：
 
 ```
-请使用 img_hamming_skill 处理 /path/to/images 目录下的图片
+请使用 img-hamming-skill 处理 /path/to/images 目录下的图片
+```
+
+### 手动安装
+
+如果自动安装失败，可以手动复制文件：
+
+```bash
+# 复制技能目录到 .claude
+cp -r .claude ~/.claude/
+
+# 或在 Windows 上
+xcopy .claude %USERPROFILE%\.claude\ /E /I
 ```
 
 ### 使用
 
 ```bash
 # 处理图片目录
-python skills/img_hamming_skill/main.py -d /path/to/images
+python .claude/skills/img-hamming-skill/main.py -d /path/to/images
 
 # 保留拼图文件
-python skills/img_hamming_skill/main.py -d /path/to/images --keep-collages
+python .claude/skills/img-hamming-skill/main.py -d /path/to/images --keep-collages
 
 # 自定义描述提示
-python skills/img_hamming_skill/main.py -d /path/to/images -p "分析这些图片的商业价值"
+python .claude/skills/img-hamming-skill/main.py -d /path/to/images -p "分析这些图片的商业价值"
 ```
 
 ### Python集成
 
 ```python
-from skills.img_hamming_skill.main import ImageHammingSkill
+from .claude.skills.img_hamming_skill.main import ImageHammingSkill
 
 skill = ImageHammingSkill()
 result = skill.process_images(

@@ -1,0 +1,10 @@
+# 图片聚类与描述中间组件 - Python依赖
+
+# Anthropic SDK - 用于多模态AI描述
+anthropic>=0.40.0
+
+# 图像处理库（可选，用于额外的图像处理）
+Pillow>=11.0.0
+
+# 数据验证
+pydantic>=2.0.0
