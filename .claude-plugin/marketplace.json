@@ -1,45 +1,21 @@
 {
   "name": "img-description-skill",
-  "displayName": "图片聚类与描述技能",
-  "version": "1.0.0",
-  "description": "基于dHash算法的大规模图片聚类分级与AI多模态描述组件。支持三层聚类结构，自动生成拼图并使用Claude进行智能描述。",
-  "author": "Muprprpr",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Muprprpr/img-description-skill.git"
+  "owner": {
+    "name": "Muprprpr"
   },
-  "homepage": "https://github.com/Muprprpr/img-description-skill#readme",
-  "bugs": {
-    "url": "https://github.com/Muprprpr/img-description-skill/issues"
+  "metadata": {
+    "description": "基于dHash算法的大规模图片聚类分级与AI多模态描述组件。支持三层聚类结构，自动生成拼图并使用Claude进行智能描述。",
+    "version": "1.0.0"
   },
-  "skills": [
+  "plugins": [
     {
       "name": "img-hamming-skill",
-      "path": "skills/img-hamming-skill",
-      "description": "图片聚类与描述中间组件 - 基于dHash进行图片分级聚类，生成拼图并提供AI描述"
+      "description": "图片聚类与描述中间组件 - 基于dHash进行图片分级聚类，生成拼图并提供AI描述",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/img-hamming-skill"
+      ]
     }
-  ],
-  "runtime": {
-    "python": ">=3.9",
-    "dependencies": [
-      "anthropic>=0.40.0",
-      "pillow>=11.0.0"
-    ]
-  },
-  "config": {
-    "requires_api_key": true,
-    "api_key_name": "ANTHROPIC_API_KEY",
-    "api_provider": "anthropic"
-  },
-  "categories": ["image-processing", "computer-vision", "clustering"],
-  "tags": [
-    "image-clustering",
-    "dhash",
-    "hamming-distance",
-    "multi-modal",
-    "anthropic",
-    "claude",
-    "chinese"
   ]
 }
